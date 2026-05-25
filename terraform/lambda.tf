@@ -4,8 +4,7 @@ resource "aws_lambda_function" "processor" {
 
   filename = "../lambda/lambda.zip"
 
-  source_code_hash =
-    filebase64sha256("../lambda/lambda.zip")
+  source_code_hash = filebase64sha256("../lambda/lambda.zip")
 
   handler = "app.lambda_handler"
 
@@ -19,8 +18,7 @@ resource "aws_lambda_function" "processor" {
 
     variables = {
 
-      TABLE_NAME =
-        aws_dynamodb_table.files.name
+      TABLE_NAME = aws_dynamodb_table.files.name
 
       ENVIRONMENT = "dev"
 
